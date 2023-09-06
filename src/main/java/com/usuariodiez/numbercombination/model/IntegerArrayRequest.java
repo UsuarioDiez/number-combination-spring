@@ -1,13 +1,15 @@
 package com.usuariodiez.numbercombination.model;
 
-public class IntegerArrayRequest {
-    private Integer[] integers;
+import java.util.List;
 
-    public Integer[] getIntegers() {
+public class IntegerArrayRequest {
+    private List<Integer> integers;
+
+    public List<Integer> getIntegers() {
         return integers;
     }
 
-    public void setIntegers(Integer[] integers) {
+    public void setIntegers(List<Integer> integers) {
         this.integers = integers;
     }
 }

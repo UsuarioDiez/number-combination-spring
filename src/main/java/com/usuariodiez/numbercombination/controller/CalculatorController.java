@@ -16,7 +16,7 @@ public class CalculatorController {
 
     @PostMapping("/test")
     @ResponseBody
-    public String testing(@RequestBody IntegerArrayRequest integerArrayRequest){
-        return calculatorService.getBinaryArrays(Arrays.asList(integerArrayRequest.getIntegers()));
+    public List<List<Integer>> testing(@RequestBody IntegerArrayRequest integerArrayRequest){
+        return calculatorService.findCombinations(integerArrayRequest.getIntegers());
     }
 }
