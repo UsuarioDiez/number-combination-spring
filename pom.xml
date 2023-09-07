@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.usuariodiez</groupId>
-	<artifactId>number-combination</artifactId>
+	<artifactId>number-combination-spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>number-combination</name>
 	<description>API for getting possible combinations of elements in an array adding up to its max value</description>

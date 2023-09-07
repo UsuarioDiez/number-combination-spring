@@ -4,15 +4,21 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class CalculatorService {
     public List<List<Integer>> findCombinations(List<Integer> integers){
-        System.out.println(integers);
+        List<List<Integer>> successfulCombinations=new ArrayList<>();
         int maxValue=Collections.max(integers);
         integers.removeIf(integer -> integer==maxValue);
-        System.out.println(integers);
-        return getBinaryArrays(integers);
+        var binaryArrays=getBinaryArrays(integers);
+        binaryArrays.forEach(binaryArray->{
+            int sum=0;
+            List<Integer> combination=IntStream.range(0,integers.size()).map(i->integers.get(i)*binaryArray.get(i)).boxed().filter(i->i!=0).collect(Collectors.toList());
+            if (combination.stream().mapToInt(Integer::intValue).sum()==maxValue) successfulCombinations.add(combination);
+        });
+        return successfulCombinations;
     }
 
     public List<List<Integer>> getBinaryArrays(List<Integer> integersToCombine){
